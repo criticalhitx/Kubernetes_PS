@@ -1,0 +1,20 @@
+https://github.com/yanghongfei/Kubernetes/blob/master/calico/rbac-kdd.yaml
+COPY CODE ABOVE TO rbac-kdd.yaml
+https://docs.projectcalico.org/v3.10/manifests/calico.yaml
+COPY CODE ABOVE TO calico.yaml
+
+kubeadm init --pod-network-cidr=10.20.0.0/16 
+kubectl apply -f rbac-kdd.yaml
+kubectl apply -f calico.yaml
+
+-------
+IF SWAP IS NOT SUPPORTED PLEASE DISABLE SWAP, RUN THIS
+
+swapoff -a
+
+-------
+BASH COMPLETION(like cisco)
+
+sudo apt-get install bash-completion
+echo "source <(kubectl completion bash)" >> ~/.bashrc
+source ~/.bashrc
